@@ -1,9 +1,9 @@
 import { Sequelize } from "sequelize-typescript"
-import { ClientModel } from "../repository/client.model"
 import ClientRepository from "../repository/client.repository"
 import AddClientUseCase from "../usecase/add-client/add-client.usecase"
 import ClientAdmFacade from "./client-adm.facade"
 import ClientAdmFacadeFactory from "../factory/client-adm.facade.factory"
+import ClientModel from "../repository/client.model"
 
 
 describe("Client Adm Facade test", () => {
@@ -40,6 +40,12 @@ describe("Client Adm Facade test", () => {
             name: "Lucian",
             email: "lucian@xpto.com",
             document: "1234-5678",
+            street: "rua 1",
+            number: "123",
+            complement: "complement",
+            city: "new city",
+            state: "State",
+            zipCode: "1234",
         }
 
         await facade.add(input)
@@ -61,7 +67,13 @@ describe("Client Adm Facade test", () => {
             id: "1",
             name: "Lucian",
             email: "lucian@xpto.com",
-            document: "1234-5678"
+            document: "1234-5678",
+            street: "rua 1",
+            number: "123",
+            complement: "complement",
+            city: "new city",
+            state: "State",
+            zipCode: "1234",
         }
 
         await facade.add(input)

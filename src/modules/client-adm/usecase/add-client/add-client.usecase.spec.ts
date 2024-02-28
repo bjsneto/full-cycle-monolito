@@ -19,6 +19,12 @@ describe("Add Client use case unit test", () => {
             name: "Lucian",
             email: "lucian@123.com",
             document: "1234-5678",
+            street: "rua 1",
+            number: "123",
+            complement: "complement",
+            city: "new city",
+            state: "State",
+            zipCode: "1234",
         }
 
         const result = await usecase.execute(input)

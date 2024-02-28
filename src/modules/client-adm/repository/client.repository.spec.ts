@@ -1,8 +1,8 @@
 import { Sequelize } from "sequelize-typescript"
-import { ClientModel } from "./client.model"
 import ClientRepository from "./client.repository"
 import Client from "../domain/client.entity"
 import Id from "../../@shared/domain/value-object/id.value-object"
+import ClientModel from "./client.model"
 
 describe("Client Repository test", () => {
 
@@ -31,6 +31,12 @@ describe("Client Repository test", () => {
             name: "Lucian",
             email: "lucian@teste.com",
             document: "1234-5678",
+            street: "rua 1",
+            number: "123",
+            complement: "complement",
+            city: "new city",
+            state: "State",
+            zipCode: "1234",
         })
 
         const repository = new ClientRepository()
@@ -46,7 +52,7 @@ describe("Client Repository test", () => {
 
         const createdAt = new Date(clientDb.createdAt);
         const updatedAt = new Date(clientDb.updatedAt);
-        
+
         expect(createdAt).toStrictEqual(new Date(client.createdAt));
         expect(updatedAt).toStrictEqual(new Date(client.updatedAt));
 
@@ -59,6 +65,12 @@ describe("Client Repository test", () => {
             name: 'Lucian',
             email: 'lucian@123.com',
             document: "1234-5678",
+            street: "rua 1",
+            number: "123",
+            complement: "complement",
+            city: "new city",
+            state: "State",
+            zipCode: "1234",
             createdAt: new Date(),
             updatedAt: new Date()
         }, { raw: true })
@@ -71,7 +83,7 @@ describe("Client Repository test", () => {
         expect(result.email).toEqual(client.dataValues.email)
         const createdAt = new Date(result.createdAt);
         const updatedAt = new Date(result.updatedAt);
-        
+
         expect(createdAt).toStrictEqual(new Date(client.dataValues.createdAt));
         expect(updatedAt).toStrictEqual(new Date(client.dataValues.updatedAt));
     })
