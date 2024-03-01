@@ -41,7 +41,6 @@ export default class InvoiceRepository implements InvoiceGateway {
         const invoice = await InvoiceModel.findByPk(id, {
             include: ["items"]
         });
-
         const address = new Address(
             invoice.dataValues.street,
             invoice.dataValues.number,
